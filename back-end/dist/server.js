@@ -15,9 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const utils_1 = require("./database/utils");
 const task_repository_1 = __importDefault(require("./Model/Task/task.repository"));
+const Router_1 = __importDefault(require("./Routes/Router"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 8000;
 app.use(express_1.default.json());
+app.use(Router_1.default);
 const start = () => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, utils_1.getDatabase)();
     yield task_repository_1.default.initializeRepository();

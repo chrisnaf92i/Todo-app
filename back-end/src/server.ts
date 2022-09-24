@@ -1,12 +1,15 @@
 import express from "express";
 import { getDatabase } from "./database/utils";
 import TaskRepository from "./Model/Task/task.repository";
+import router from "./Routes/Router";
 
 const app = express();
 
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
+
+app.use(router);
 
 const start = async () => {
     await getDatabase();
