@@ -30,4 +30,5 @@ router.get("/api", (req, res) => {
     res.send("Bienvenu sur ma to do list");
 });
 router.get("/api/tasks", taskController.get);
+router.delete("/api/tasks/:id", taskController.deleteTask);
 exports.default = router;

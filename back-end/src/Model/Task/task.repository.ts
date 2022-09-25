@@ -26,5 +26,15 @@ export default class TaskRepository extends Task {
         return this.repository.find();
     }
 
+    static async deleteTask(id:string) {
+        const task = await this.repository.findOneBy({id});
+
+        if(!task) {
+            throw Error ("Utilisateur non trouvée")
+        }else {
+            return this.repository.remove(task)
+        }
+    }
+
     
 }

@@ -38,5 +38,16 @@ class TaskRepository extends task_entieties_1.default {
             return this.repository.find();
         });
     }
+    static deleteTask(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const task = yield this.repository.findOneBy({ id });
+            if (!task) {
+                throw Error("Utilisateur non trouvée");
+            }
+            else {
+                return this.repository.remove(task);
+            }
+        });
+    }
 }
 exports.default = TaskRepository;
