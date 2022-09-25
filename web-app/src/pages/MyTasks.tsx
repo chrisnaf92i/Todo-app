@@ -5,14 +5,15 @@ import { TaskType } from '../Type'
 
 export default function MyTasks() {
   const [allTasks, setAllTasks] = useState<null| TaskType[]>(null)
-  useEffect(() => {
-    (
-      async () => {
-        const fetchedTask = await fetchTask();
+
+  const fetchAllTask = async () => {
+      const fetchedTask = await fetchTask();
         
-        setAllTasks(fetchedTask)
-      }
-    )()
+      setAllTasks(fetchedTask)
+  }
+
+  useEffect(() => {
+    fetchAllTask()
   }, [])
   return (
     <>
@@ -21,7 +22,7 @@ export default function MyTasks() {
         <section className='taskList'>
           {
             allTasks?.map( (task) => 
-              <Task key={task.id} id={task.id} title={task.title} description={task.description} importance={task.importance} done={task.done}/>
+              <Task key={task.id} onDelete={fetchAllTask} id={task.id} title={task.title} description={task.description} importance={task.importance} done={task.done}/>
             )
           }
         </section>
