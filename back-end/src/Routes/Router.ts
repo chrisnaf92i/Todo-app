@@ -9,4 +9,5 @@ router.get("/api", (req: Request, res:Response) => {
 
 router.get("/api/tasks", taskController.get)
 router.delete("/api/tasks/:id", taskController.deleteTask)
+router.put("/api/tasks/:id", taskController.changeDoneTask)
 export default router;

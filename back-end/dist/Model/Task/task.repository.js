@@ -28,9 +28,9 @@ class TaskRepository extends task_entieties_1.default {
     static initializeTask() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.clearRepository();
-            const learnJS = new task_entieties_1.default("Développement web", "Apprendre le développement web (html, css, js", "importance_3", false);
+            const learnJS = new task_entieties_1.default("Développement web", "Apprendre le développement web (html, css, js)", "importance_3", false);
             const cook = new task_entieties_1.default("Lasagne", "cuisiner des lasagnes", "importance_1", true);
-            yield this.repository.save([learnJS, cook]);
+            yield this.repository.save([learnJS, cook, learnJS, cook, learnJS]);
         });
     }
     static getTasks() {
@@ -46,6 +46,18 @@ class TaskRepository extends task_entieties_1.default {
             }
             else {
                 return this.repository.remove(task);
+            }
+        });
+    }
+    static setDoneTask(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let task = yield this.repository.findOneBy({ id });
+            if (!task) {
+                throw Error("Utilisateur non trouvée");
+            }
+            else {
+                task = Object.assign(Object.assign({}, task), { done: !task.done });
+                this.repository.save(task);
             }
         });
     }

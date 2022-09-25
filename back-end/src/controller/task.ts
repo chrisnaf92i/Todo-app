@@ -23,7 +23,24 @@ const deleteTask = async (req:Request, res: Response) => {
     }
 }
 
+const changeDoneTask = async (req:Request, res:Response) => {
+    const { id } = req.params;
+
+    if(!id) {
+        res.status(400).json({message:"l'id est requis"});
+    }else {
+        try {
+            await TaskRepository.setDoneTask(id);
+            res.status(200).json({message:"changement de l'état"})
+        }
+        catch ( error ) {
+            res.status(400).json(getErrorMessage(error))
+        }
+    }
+}
+
 export {
     get,
-    deleteTask
+    deleteTask,
+    changeDoneTask
 }

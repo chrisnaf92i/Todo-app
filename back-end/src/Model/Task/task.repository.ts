@@ -16,10 +16,10 @@ export default class TaskRepository extends Task {
     static async initializeTask(){
         await this.clearRepository()
 
-        const learnJS = new Task("Développement web", "Apprendre le développement web (html, css, js", "importance_3", false)
+        const learnJS = new Task("Développement web", "Apprendre le développement web (html, css, js)", "importance_3", false)
         const cook = new Task("Lasagne", "cuisiner des lasagnes", "importance_1", true)
     
-        await this.repository.save([learnJS, cook])
+        await this.repository.save([learnJS, cook, learnJS, cook, learnJS])
     }
 
     static async getTasks() {
@@ -34,6 +34,20 @@ export default class TaskRepository extends Task {
         }else {
             return this.repository.remove(task)
         }
+    }
+    static async setDoneTask(id:string) {
+        let task = await this.repository.findOneBy({id});
+
+        if(!task) {
+            throw Error ("Utilisateur non trouvée")
+        }else {
+            
+            task = {...task, done:!task.done}
+
+            this.repository.save(task)
+        }
+
+
     }
 
     
