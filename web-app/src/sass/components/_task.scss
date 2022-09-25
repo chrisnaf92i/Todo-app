@@ -1,0 +1,32 @@
+.TaskCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:16px;
+    width:50%;
+    margin:25px auto;
+    border-radius: 10px;
+
+    input {
+        margin:24px;
+    }
+    .textContainer {
+        width:80%;
+        p {
+            width:100%;
+        }
+    }
+}
+
+.importance_1 {
+    border:3px solid green;    
+}
+
+.importance_2 {
+    border:3px solid yellow;    
+}
+
+.importance_3 {
+    border:3px solid red;
+}
+
