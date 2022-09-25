@@ -29,7 +29,13 @@ class TaskRepository extends task_entieties_1.default {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.clearRepository();
             const learnJS = new task_entieties_1.default("Développement web", "Apprendre le développement web (html, css, js", "importance_3", false);
-            yield this.repository.save(learnJS);
+            const cook = new task_entieties_1.default("Lasagne", "cuisiner des lasagnes", "importance_1", true);
+            yield this.repository.save([learnJS, cook]);
+        });
+    }
+    static getTasks() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.repository.find();
         });
     }
 }

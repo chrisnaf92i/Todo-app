@@ -17,8 +17,13 @@ export default class TaskRepository extends Task {
         await this.clearRepository()
 
         const learnJS = new Task("Développement web", "Apprendre le développement web (html, css, js", "importance_3", false)
+        const cook = new Task("Lasagne", "cuisiner des lasagnes", "importance_1", true)
     
-        await this.repository.save(learnJS)
+        await this.repository.save([learnJS, cook])
+    }
+
+    static async getTasks() {
+        return this.repository.find();
     }
 
     
