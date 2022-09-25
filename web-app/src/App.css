@@ -54,6 +54,10 @@ header nav a:hover {
   width: 100%;
 }
 
+.done .title {
+  text-decoration: line-through;
+}
+
 .importance_1 {
   border: 3px solid green;
 }
@@ -72,6 +76,50 @@ header nav a:hover {
   background-color: red;
   border-radius: 5px;
   color: white;
+}
+
+.Overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.487);
+}
+.Overlay .ChoiceBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  border-radius: 10px;
+}
+.Overlay .ChoiceBox h2 {
+  width: 90%;
+}
+.Overlay .ChoiceBox button {
+  margin: 16px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 3px 5px black;
+  background-color: white;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+.Overlay .ChoiceBox .btn-no {
+  background-color: red;
+}
+.Overlay .ChoiceBox .btn-yes {
+  background-color: green;
 }
 
 /*# sourceMappingURL=App.css.map */

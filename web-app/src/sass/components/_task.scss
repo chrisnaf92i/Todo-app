@@ -18,6 +18,12 @@
     }
 }
 
+.done {
+    .title {
+        text-decoration: line-through;
+    }
+}
+
 .importance_1 {
     border:3px solid green;    
 }
