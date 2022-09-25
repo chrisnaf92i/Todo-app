@@ -1,0 +1,54 @@
+.Overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    right:0;
+    left:0;
+    top:0;
+    bottom:0;
+
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.487);
+
+    .ChoiceBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        
+        background-color: white;
+        
+        width:400px;
+        height:200px;
+        
+        text-align: center;
+
+        h2 {
+            width:90%;
+        }
+        border-radius: 10px;
+
+        button {
+            margin:16px;
+            padding:8px;
+            border:none;
+            border-radius: 5px;
+            box-shadow: 2px 3px 5px black;
+            background-color: white;
+            font-size: 16px;
+            color:white;
+            font-weight: bold;
+
+
+        }
+
+        .btn-no {
+            background-color: red;
+        }
+        .btn-yes {
+            background-color: green ;
+        }
+    }
+}
